@@ -28,14 +28,23 @@ public:
         x = dx;
         y = dy;
     }
+    void reset();
 };
+
+void Point::reset(){
+    x = 0;
+    y = 0;
+}
 
 int main(){
     Point *p = new Point(5, 15);
+    Point *p2 = new Point(*p);
 
     p->change(10, 10);
+    p2->reset();
 
     delete p;
+    delete p2;
     
     return 0;
 }
