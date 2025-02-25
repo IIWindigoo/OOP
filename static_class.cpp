@@ -21,10 +21,15 @@ public:
     }
     ~Point(){
         printf("%d, %d\n", x, y);
-        printf("~Point()");
+        printf("~Point()\n");
     }
 };
 
 int main(){
+    {
+        Point p;
+        Point p2(5, 10);
+        Point p3(p2);
+    }
     return 0;
 }
