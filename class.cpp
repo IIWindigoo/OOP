@@ -24,16 +24,18 @@ public:
         printf("%d, %d\n", x, y);
         printf("~Point()\n");
     }
+    void change(int dx, int dy){
+        x = dx;
+        y = dy;
+    }
 };
 
 int main(){
-    Point *p = new Point;
-    Point *p2 = new Point(5, 10);
-    Point *p3 = new Point(*p2);
+    Point *p = new Point(5, 15);
+
+    p->change(10, 10);
 
     delete p;
-    delete p2;
-    delete p3;
     
     return 0;
 }
