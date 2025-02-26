@@ -73,12 +73,19 @@ int main(){
 
     delete p;
     delete p2;
+
     printf("-----------------\n");
     //Создание объекта класса-наследника
     ColoredPoint *p3 = new ColoredPoint(1, 1, 32);
     p3->change(10, 10);
     p3->change_color(27);
     delete p3;
+    
+    printf("-----------------\n");
+    Point *p4 = new ColoredPoint(4, 4, 20);
+    ColoredPoint *p5 = new ColoredPoint(5, 5, 25);
+    delete p4;
+    delete p5;
 
     return 0;
 }
