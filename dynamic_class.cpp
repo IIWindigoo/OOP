@@ -24,6 +24,25 @@ public:
         printf("~Point()\n");
     }
 };
+//Инициализация полей класса в списке инициализации
+class Shape{
+protected:
+    int area;
+public:
+    Shape() : area(0) {
+        printf("Shape()\n");
+    }
+    Shape(int area) : area(area) {
+        printf("Shape(int area)\n");
+    }
+    Shape(const Shape &s) : area(s.area) {
+        printf("Shape(const Shape &s)\n");
+    }
+    ~Shape() {
+        printf("%d\n", area);
+        printf("~Shape()\n");
+    }
+};
 
 int main(){
     Point *p = new Point;
@@ -33,6 +52,11 @@ int main(){
     delete p;
     delete p2;
     delete p3;
+
+    printf("-------------------\n");
+    Shape *s = new Shape;
+
+    delete s;
     
     return 0;
 }
