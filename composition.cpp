@@ -53,8 +53,8 @@ public:
     }
     Section(const Section &s){
         printf("Section(const Section &s)\n");
-        pbeg = s.pbeg;
-        pend = s.pend;
+        pbeg = new Point(*(s.pbeg));
+        pend = new Point(*(s.pend));
     }
     ~Section(){
         printf("~Section()\n");
@@ -64,7 +64,7 @@ public:
 };
 
 int main(){
-    //Композиция с поверхностным копированием
+    //Композиция с глубоким копированием
     Section *s1 = new Section;
     Section *s2 = new Section(*s1);
 
