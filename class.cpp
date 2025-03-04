@@ -20,7 +20,7 @@ public:
         x = p.x;
         y = p.y;
     }
-    ~Point(){
+    virtual ~Point(){
         printf("%d, %d\n", x, y);
         printf("~Point()\n");
     }
@@ -48,10 +48,8 @@ public:
         printf("ColoredPoint(int x, int y, int color)\n");
         this->color = color;
     }
-    ColoredPoint(const ColoredPoint &p){
-        printf("ColoredPoint(const Point &p)\n");
-        x = p.x;
-        y = p.y;
+    ColoredPoint(const ColoredPoint &p) : Point(p) {
+        printf("ColoredPoint(const ColoredPoint &p)\n");
         color = p.color;
     }
     ~ColoredPoint(){
@@ -76,9 +74,11 @@ int main(){
 
     printf("-----------------\n");
     //Создание объекта класса-наследника
-    ColoredPoint *p3 = new ColoredPoint(1, 1, 32);
+    ColoredPoint *pp3 = new ColoredPoint(1, 1, 32);
+    ColoredPoint *p3 = new ColoredPoint(*pp3);
     p3->change(10, 10);
     p3->change_color(27);
+    delete pp3;
     delete p3;
     
     printf("-----------------\n");
